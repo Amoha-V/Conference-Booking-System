@@ -60,9 +60,9 @@ const PORT = process.env.PORT || 3000;
 console.log('Starting minimal server...');
 app.listen(PORT, () => {
   console.log(`
-  🚀 Minimal server running successfully on port ${PORT}
-  📍 No service imports - just basic route handlers
-  🔗 Test: http://localhost:${PORT}/health
+   Minimal server running successfully on port ${PORT}
+   No service imports - just basic route handlers
+   Test: http://localhost:${PORT}/health
   
   If this works, the error is in your service files!
   `);

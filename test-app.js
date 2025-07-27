@@ -72,9 +72,9 @@ const PORT = process.env.PORT || 3000;
 console.log('4. Starting server...');
 app.listen(PORT, () => {
   console.log(`
-  🚀 Test server running successfully on port ${PORT}
-  📍 All routes registered without errors
-  🔗 Test: http://localhost:${PORT}/health
+   Test server running successfully on port ${PORT}
+   All routes registered without errors
+   Test: http://localhost:${PORT}/health
   
   If you see this message, the path-to-regexp error is not in route registration.
   The error might be in cron job setup or service file execution.

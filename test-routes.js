@@ -5,23 +5,23 @@ const app = express();
 try {
   console.log('Testing userRoutes...');
   const userRoutes = require('./routes/userRoutes');
-  console.log('✓ userRoutes OK');
+  console.log(' userRoutes OK');
 } catch (e) {
-  console.error('✗ userRoutes failed:', e.message);
+  console.error(' userRoutes failed:', e.message);
 }
 
 try {
   console.log('Testing bookingRoutes...');
   const bookingRoutes = require('./routes/bookingRoutes');
-  console.log('✓ bookingRoutes OK');
+  console.log('bookingRoutes OK');
 } catch (e) {
-  console.error('✗ bookingRoutes failed:', e.message);
+  console.error(' bookingRoutes failed:', e.message);
 }
 
 try {
   console.log('Testing conferenceRoutes...');
   const conferenceRoutes = require('./routes/conferenceRoutes');
-  console.log('✓ conferenceRoutes OK');
+  console.log(' conferenceRoutes OK');
 } catch (e) {
-  console.error('✗ conferenceRoutes failed:', e.message);
+  console.error('conferenceRoutes failed:', e.message);
 }

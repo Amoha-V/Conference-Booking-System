@@ -2,7 +2,7 @@ const { query } = require('../config/database');
 
 const createTables = async () => {
   try {
-    console.log('🚀 Creating database tables...');
+    console.log(' Creating database tables...');
 
     // Create conferences table
     await query(`
@@ -21,7 +21,7 @@ const createTables = async () => {
         CONSTRAINT available_slots_valid CHECK (available_slots <= total_slots)
       )
     `);
-    console.log('✅ Conferences table created');
+    console.log(' Conferences table created');
 
     // Create users table
     await query(`
@@ -33,7 +33,7 @@ const createTables = async () => {
         CONSTRAINT max_topics CHECK (array_length(interested_topics, 1) <= 50)
       )
     `);
-    console.log('✅ Users table created');
+    console.log(' Users table created');
 
     // Create bookings table
     await query(`
@@ -48,7 +48,7 @@ const createTables = async () => {
         UNIQUE(conference_name, user_id)
       )
     `);
-    console.log('✅ Bookings table created');
+    console.log(' Bookings table created');
 
     // Create waitlist table for maintaining order
     await query(`
@@ -62,7 +62,7 @@ const createTables = async () => {
         UNIQUE(conference_name, position)
       )
     `);
-    console.log('✅ Waitlist table created');
+    console.log(' Waitlist table created');
 
     // Create indexes for better performance
     await query(`
@@ -85,7 +85,7 @@ const createTables = async () => {
       CREATE INDEX IF NOT EXISTS idx_waitlist_conference_position ON waitlist(conference_name, position);
     `);
     
-    console.log('✅ Indexes created');
+    console.log('Indexes created');
 
     // Create updated_at trigger function
     await query(`
@@ -120,9 +120,9 @@ const createTables = async () => {
         FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
     `);
 
-    console.log('✅ Triggers created');
+    console.log(' Triggers created');
 
-    console.log('🎉 Database initialization completed successfully!');
+    console.log('Database initialization completed successfully!');
     
     // Display table information
     const tablesResult = await query(`
@@ -132,13 +132,13 @@ const createTables = async () => {
       ORDER BY table_name;
     `);
     
-    console.log('\n📋 Created tables:');
+    console.log('\n Created tables:');
     tablesResult.rows.forEach(row => {
       console.log(`  - ${row.table_name}`);
     });
 
   } catch (error) {
-    console.error('❌ Error creating tables:', error);
+    console.error(' Error creating tables:', error);
     throw error;
   }
 };
@@ -147,11 +147,11 @@ const createTables = async () => {
 if (require.main === module) {
   createTables()
     .then(() => {
-      console.log('✅ Database setup complete');
+      console.log(' Database setup complete');
       process.exit(0);
     })
     .catch((error) => {
-      console.error('❌ Database setup failed:', error);
+      console.error(' Database setup failed:', error);
       process.exit(1);
     });
 }
